@@ -31,8 +31,8 @@ public class phonebill {
         SimpleDateFormat dfs = new SimpleDateFormat("HH:mm:ss");
         Date begin = dfs.parse(bTime);
         Date end = dfs.parse(eTime);
-        long between = (end.getTime() - begin.getTime()) / 1000;//除以1000是为了转换成秒
-        long min = between / 60;
+        double between = (end.getTime() - begin.getTime()) / 1000;//除以1000是为了转换成秒
+        double min = between / 60;
         //不足一分钟的按一分钟计算
         if (between % 60 > 0) {
             min = min + 1;
@@ -62,7 +62,7 @@ public class phonebill {
 
     }
 
-    public static double Money(long min) {
+    public static double Money(double min) {
         //计费
         if (min < 1 && min >= 0) {
             money = 0.05;
@@ -92,7 +92,7 @@ class Judge {
     }
 
     //春夏转换
-    public static long Trans1(int month, int day, long min) {
+    public static double Trans1(int month, int day, double min) {
         if (month == 3) {
             min = min - 60;
         }
@@ -100,7 +100,7 @@ class Judge {
     }
 
     //夏秋转换
-    public static long Trans2(int month, int day, long min) {
+    public static double Trans2(int month, int day, double min) {
         if (month == 11) {
             if (day >= 1 && day <= 7) {
                 min = min + 60;
