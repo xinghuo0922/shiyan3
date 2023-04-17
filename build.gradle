@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id "com.github.spotbugs" version "$spotbugspluginVersion"
+    id "info.solidsoft.pitest" version "1.7.4"
 }
 
 group 'org.example'
@@ -62,4 +63,12 @@ spotbugsMain {
             stylesheet = 'fancy-hist.xsl'
         }
     }
+}
+
+pitest {
+    targetClasses = ['mimic.*']
+    threads = 4
+    outputFormats = ['HTML']
+    timestampedReports = true
+    junit5PluginVersion = '0.15'
 }

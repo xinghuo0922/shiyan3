@@ -1,2 +1,4 @@
 rootProject.name = 'shiyan3'
+include 'src:main:mimic'
+findProject(':src:main:mimic')?.name = 'mimic'
 
